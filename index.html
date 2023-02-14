@@ -1,11 +1,41 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Test index</title>
+    <title>AR</title>
+    <script src="scripts/jquery-3.6.3.min.js"></script>
+    <script src="scripts/aframe-master.min.js"></script>
+    <script src="scripts/aframe-ar-nft.js"></script>
+    <script src="scripts/index.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
   </head>
   <body>
-    <h1>Test</h1>
-    <p>
-      ABC 123
-    </p>
+    <!-- minimal loader shown until image descriptors are loaded -->
+    <div class="arjs-loader">
+      <div>Đang tải dữ liệu. Vui lòng đợi...</div>
+    </div>
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true; precision: medium;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    >
+      <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+      <a-nft
+        type="nft"
+        url="https://raw.githubusercontent.com/L2KD/test-ar/master/resources/images/avatar_telegram_origin"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
+        <a-entity
+          gltf-model="https://raw.githubusercontent.com/L2KD/test-ar/master/resources/gltf/test.gltf"
+          scale="1 1 1"
+          position="150 -100 -100"
+        >
+        </a-entity>
+      </a-nft>
+      <a-entity camera></a-entity>
+    </a-scene>
   </body>
 </html>
