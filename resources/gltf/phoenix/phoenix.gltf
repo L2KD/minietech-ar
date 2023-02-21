@@ -11551,7 +11551,7 @@
   "buffers": [
     {
       "byteLength": 710936,
-      "uri": "https://raw.githubusercontent.com/L2KD/minietech-ar/main/resources/gltf/phoenix/scene.bin"
+      "uri": "scene.bin"
     }
   ],
   "images": [
